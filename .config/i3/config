@@ -117,6 +117,10 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+# scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -149,7 +153,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 new_window pixel 1px
-for_window [class="Gnome-terminal"] border pixel 1
 gaps inner 4
 gaps outer 2
 focus_follows_mouse no
