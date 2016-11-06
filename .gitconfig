@@ -1,0 +1,16 @@
+[user]
+	name = Serede Sixty Six
+	email = serede.dev@gmail.com
+[core]
+	editor = vim
+	excludesfile = /home/serede/.gitignore_global
+[color]
+	ui = true
+[push]
+	default = simple
+[diff]
+	tool = vimdiff
+[init]
+	templatedir = ~/.git_template
+[alias]
+	ctags = !.git/hooks/ctags
