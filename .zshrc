@@ -100,6 +100,9 @@ bind2maps       viins vicmd -- Right       vi-forward-char
 
 unfunction bind2maps
 
+# Colorful mate-terminal
+[[ $(cat /proc/$PPID/cmdline) =~ "mate-terminal" ]] && TERM=xterm-256color
+
 # Aliases
 alias cupstart="systemctl start org.cups.cupsd.service"
 alias cupstop="systemctl stop org.cups.cupsd.service"
