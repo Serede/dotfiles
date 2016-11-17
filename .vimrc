@@ -92,7 +92,7 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 Plug 'majutsushi/tagbar'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline-themes' | Plug 'vim-airline/vim-airline'
+Plug 'edkolev/promptline.vim' | Plug 'vim-airline/vim-airline-themes' | Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " Fancy colorscheme
@@ -118,5 +118,15 @@ let g:tagbar_sort = 0
 " Airline settings
 set laststatus=2
 set ttimeoutlen=50
+let g:airline_theme='murmur'
 let g:airline_powerline_fonts = 1
 call airline#parts#define_accent('linenr', 'none')
+
+"Promptline settings
+let g:promptline_preset = {
+            \'a': [ '%m', '%n' ],
+            \'b': [ promptline#slices#python_virtualenv(), promptline#slices#vcs_branch() ],
+            \'c': [ promptline#slices#cwd({ 'dir_limit': 2 }) ],
+            \'x': [ '$_promptline_vim_mode' ],
+            \'y': [ '$_promptline_exit_code' ]}
+let g:promptline_theme = 'airline'
