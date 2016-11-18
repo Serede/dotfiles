@@ -125,7 +125,7 @@ call airline#parts#define_accent('linenr', 'none')
 "Promptline settings
 let g:promptline_preset = {
             \'a': [ '%m', '%n' ],
-            \'b': [ promptline#slices#cwd({ 'dir_limit': 2 }) ],
+            \'b': [ '%1~' ],
             \'c': [ promptline#slices#python_virtualenv(), promptline#slices#vcs_branch() ],
             \'x': [ '$_promptline_vim_mode' ],
             \'y': [ '$_promptline_exit_code' ]}
