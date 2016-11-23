@@ -92,6 +92,7 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 Plug 'vim-airline/vim-airline-themes' | Plug 'vim-airline/vim-airline'
 Plug 'edkolev/promptline.vim'
 Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
 call plug#end()
@@ -115,6 +116,10 @@ let g:vimtex_view_method = 'zathura'
 nmap <Leader>t :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 let g:tagbar_sort = 0
+
+" NERDTree settings
+nmap <Leader>n :NERDTreeToggle<CR>
+let g:NERDTreeMinimalUI=1
 
 " Airline settings
 set laststatus=2
