@@ -91,6 +91,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 Plug 'vim-airline/vim-airline-themes' | Plug 'vim-airline/vim-airline'
 Plug 'edkolev/promptline.vim'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'tomasr/molokai'
@@ -103,6 +104,7 @@ colorscheme molokai
 " YCM settings
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_python_binary_path = 'python'
 let g:ycm_key_list_previous_completion = ['Up']
 let g:ycm_key_list_select_completion = ['Down']
 
@@ -111,6 +113,11 @@ let g:slimv_leader = '_'
 
 " Vimtex settings
 let g:vimtex_view_method = 'zathura'
+
+" Gutentags settings
+let g:gutentags_tagfile = '.git/tags'
+let g:gutentags_project_root = ['.git']
+let g:gutentags_add_default_project_roots = 0
 
 " Tagbar settings
 nmap <Leader>t :TagbarToggle<CR>
@@ -127,6 +134,7 @@ set laststatus=2
 set ttimeoutlen=50
 let g:airline_theme='base16_bright'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#ycm#enabled = 1
 call airline#parts#define_accent('linenr', 'none')
 
 "Promptline settings
