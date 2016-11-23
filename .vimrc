@@ -115,6 +115,7 @@ let g:vimtex_view_method = 'zathura'
 " Tagbar settings
 nmap <Leader>t :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
+let g:tagbar_compact = 1
 let g:tagbar_sort = 0
 
 " NERDTree settings
