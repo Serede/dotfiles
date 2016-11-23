@@ -89,10 +89,11 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'kovisoft/slimv', { 'for': 'lisp' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
+Plug 'vim-airline/vim-airline-themes' | Plug 'vim-airline/vim-airline'
+Plug 'edkolev/promptline.vim'
 Plug 'majutsushi/tagbar'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
-Plug 'edkolev/promptline.vim' | Plug 'vim-airline/vim-airline-themes' | Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " Fancy colorscheme
