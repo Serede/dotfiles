@@ -119,15 +119,15 @@ let g:tagbar_sort = 0
 " Airline settings
 set laststatus=2
 set ttimeoutlen=50
-let g:airline_theme='base16_summerfruit'
+let g:airline_theme='base16_bright'
 let g:airline_powerline_fonts = 1
 call airline#parts#define_accent('linenr', 'none')
 
 "Promptline settings
 let g:promptline_preset = {
             \'a': [ '%m', '%n' ],
-            \'b': [ '%1~' ],
-            \'c': [ promptline#slices#python_virtualenv(), promptline#slices#vcs_branch() ],
+            \'b': [ '%1~', promptline#slices#vcs_branch() ],
+            \'c': [ promptline#slices#python_virtualenv(), '%#' ],
             \'x': [ '$_promptline_vim_mode' ],
             \'y': [ '$_promptline_exit_code' ]}
 let g:promptline_theme = 'airline_insert'
