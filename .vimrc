@@ -127,13 +127,14 @@ let g:tagbar_sort = 0
 
 " NERDTree settings
 nmap <Leader>n :NERDTreeToggle<CR>
-let g:NERDTreeMinimalUI=1
+let g:NERDTreeMinimalUI = 1
 
 " Airline settings
 set laststatus=2
 set ttimeoutlen=50
-let g:airline_theme='base16_bright'
+let g:airline_theme = 'base16_bright'
 let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
 let g:airline#extensions#ycm#enabled = 1
 call airline#parts#define_accent('linenr', 'none')
 
