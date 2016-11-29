@@ -63,6 +63,9 @@ endif
 " Highlight current line
 set cursorline
 
+" Custom mappings
+nmap <Leader>nh :nohlsearch<CR>
+
 " Background Color Erase for 256-color fix
 if &term =~ '256color'
     " disable Background Color Erase (BCE) so that color schemes
