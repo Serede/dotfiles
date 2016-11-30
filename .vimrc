@@ -64,7 +64,8 @@ endif
 set cursorline
 
 " Custom mappings
-nmap <Leader>nh :nohlsearch<CR>
+nmap <Leader>hs :nohlsearch<CR>
+nmap <Leader>ft :%s/\s\+$//gc<CR>
 
 " Background Color Erase for 256-color fix
 if &term =~ '256color'
@@ -137,7 +138,6 @@ set laststatus=2
 set ttimeoutlen=50
 let g:airline_theme = 'base16_bright'
 let g:airline_powerline_fonts = 1
-let g:airline_skip_empty_sections = 1
 let g:airline#extensions#ycm#enabled = 1
 call airline#parts#define_accent('linenr', 'none')
 
