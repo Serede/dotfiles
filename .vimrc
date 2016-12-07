@@ -87,9 +87,14 @@ set tags+=.git/tags
 let g:lisp_rainbow = 1
 
 " Plugins
+function! BuildYCM(info)
+  if a:info.status == 'installed' || a:info.force
+    !./install.py --clang-completer --system-libclang --system-boost
+  endif
+endfunction
 call plug#begin()
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --system-boost' }
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'kovisoft/slimv', { 'for': 'lisp' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
