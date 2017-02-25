@@ -119,7 +119,7 @@ let g:slimv_leader = '_'
 let g:vimtex_view_method = 'zathura'
 
 " Gutentags settings
-let g:gutentags_tagfile = '.git/tags'
+let g:gutentags_ctags_tagfile = '.git/tags'
 let g:gutentags_project_root = ['.git']
 let g:gutentags_add_default_project_roots = 0
 
