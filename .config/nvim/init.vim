@@ -55,22 +55,29 @@ if !exists(":DiffOrig")
                  \ | wincmd p | diffthis
 endif
 
-" Custom mappings
-nmap <Leader>hs :nohlsearch<CR>
-nmap <Leader>ft :%s/\s\+$//gc<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Custom directories
+set directory=/var/tmp//,/tmp//
+set backupdir=/var/tmp//,/tmp//
+set undodir=/var/tmp//,/tmp//
 
 " Custom indentation
 set tabstop=4
 set shiftwidth=4
 set expandtab
 
-" Use custom tags file
+" Custom tags file
 set tags+=.git/tags
 
 " Rainbow Parentheses for Lisp
 let g:lisp_rainbow = 1
 
-" Plugins
+" Custom mappings
+nmap <Leader>hs :nohlsearch<CR>
+nmap <Leader>ft :%s/\s\+$//gc<CR>
+
+" PLUGINS
 call plug#begin()
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'edkolev/promptline.vim'
@@ -81,7 +88,8 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline-themes' | Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'zchee/deoplete-clang'
 Plug 'zchee/deoplete-jedi'
 call plug#end()
@@ -123,7 +131,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#ycm#enabled = 1
 call airline#parts#define_accent('linenr', 'none')
 
-"Promptline settings
+" Promptline settings
 let g:promptline_preset = {
             \'a': [ '%m', '%n' ],
             \'b': [ '%1~', promptline#slices#vcs_branch() ],

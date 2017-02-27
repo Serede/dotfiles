@@ -21,12 +21,9 @@ if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
   set backup		" keep a backup file (restore to previous version)
-  set backupdir=/var/tmp//,/tmp//
   if has('persistent_undo')
     set undofile	" keep an undo file (undo changes after closing)
-    set undodir=/var/tmp//,/tmp//
   endif
-  set directory=/var/tmp//,/tmp//
 endif
 
 if &t_Co > 2 || has("gui_running")
@@ -60,12 +57,7 @@ if has('syntax') && has('eval')
   packadd matchit
 endif
 
-" Highlight current line
-set cursorline
-
-" Custom mappings
-nmap <Leader>hs :nohlsearch<CR>
-nmap <Leader>ft :%s/\s\+$//gc<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Background Color Erase for 256-color fix
 if &term =~ '256color'
@@ -75,18 +67,34 @@ if &term =~ '256color'
     set t_ut=
 endif
 
+" Custom directories
+set directory=/var/tmp//,/tmp//
+if !has("vms")
+  set backupdir=/var/tmp//,/tmp//
+  if has('persistent_undo')
+    set undodir=/var/tmp//,/tmp//
+  endif
+endif
+
+" Highlight current line
+set cursorline
+
 " Custom indentation
 set tabstop=4
 set shiftwidth=4
 set expandtab
 
-" Use custom tags file
+" Custom tags file
 set tags+=.git/tags
 
 " Rainbow Parentheses for Lisp
 let g:lisp_rainbow = 1
 
-" Plugins
+" Custom mappings
+nmap <Leader>hs :nohlsearch<CR>
+nmap <Leader>ft :%s/\s\+$//gc<CR>
+
+" PLUGINS
 function! BuildYCM(info)
   if a:info.status == 'installed' || a:info.force
     !./install.py --clang-completer --system-libclang --system-boost
@@ -98,7 +106,8 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'kovisoft/slimv', { 'for': 'lisp' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
-Plug 'vim-airline/vim-airline-themes' | Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/promptline.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
@@ -146,7 +155,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#ycm#enabled = 1
 call airline#parts#define_accent('linenr', 'none')
 
-"Promptline settings
+" Promptline settings
 let g:promptline_preset = {
             \'a': [ '%m', '%n' ],
             \'b': [ '%1~', promptline#slices#vcs_branch() ],
