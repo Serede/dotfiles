@@ -33,17 +33,17 @@ filetype plugin indent on
 
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
-  autocmd!
+    autocmd!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+    " For all text files set 'textwidth' to 78 characters.
+    autocmd FileType text setlocal textwidth=78
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  autocmd BufReadPost *
-    \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-    \   execute "normal! g`\"" |
-    \ endif
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    autocmd BufReadPost *
+                \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+                \   execute "normal! g`\"" |
+                \ endif
 
 augroup END
 
@@ -51,8 +51,8 @@ augroup END
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
 if !exists(":DiffOrig")
-  command DiffOrig vert new | set buftype=nofile | read ++edit # | 0d_ | diffthis
-                 \ | wincmd p | diffthis
+    command DiffOrig vert new | set buftype=nofile | read ++edit # | 0d_ | diffthis
+                \ | wincmd p | diffthis
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -82,9 +82,16 @@ nmap <A-k> <C-w>k
 nmap <A-l> <C-w>l
 
 " PLUGINS
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin()
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'edkolev/promptline.vim'
+Plug 'ervandew/supertab'
 Plug 'kovisoft/slimv', { 'for': 'lisp' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'ludovicchabant/vim-gutentags'
