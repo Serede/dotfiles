@@ -76,6 +76,10 @@ let g:lisp_rainbow = 1
 " Custom mappings
 nmap <Leader>hs :nohlsearch<CR>
 nmap <Leader>ft :%s/\s\+$//gc<CR>
+nmap <A-h> <C-w>h
+nmap <A-j> <C-w>j
+nmap <A-k> <C-w>k
+nmap <A-l> <C-w>l
 
 " PLUGINS
 call plug#begin()
@@ -85,6 +89,7 @@ Plug 'kovisoft/slimv', { 'for': 'lisp' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
+Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
@@ -119,6 +124,9 @@ let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
 let g:tagbar_sort = 0
 
+" Neomake settings
+autocmd! BufReadPost,BufWritePost * Neomake
+
 " NERDTree settings
 nmap <Leader>n :NERDTreeToggle<CR>
 let g:NERDTreeMinimalUI = 1
@@ -130,6 +138,7 @@ let g:airline_theme = 'base16_bright'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ycm#enabled = 1
 call airline#parts#define_accent('linenr', 'none')
+call airline#parts#define_accent('maxlinenr', 'none')
 
 " Promptline settings
 let g:promptline_preset = {
