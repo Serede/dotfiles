@@ -131,6 +131,7 @@ alias cupstart="systemctl start org.cups.cupsd.service"
 alias cupstop="systemctl stop org.cups.cupsd.service"
 if command -v nvim >/dev/null 2>&1; then
 	alias vim="nvim"
+	alias vimdiff="nvim -d"
 	alias vi="nvim"
 fi
 
