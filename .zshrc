@@ -109,14 +109,17 @@ else
 	export KEYTIMEOUT=1
 fi
 
+# Ruby paths
+if command -v ruby >/dev/null 2>&1; then
+    PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+    export GEM_HOME="$(ruby -e 'print Gem.user_dir')"
+fi
+
 # Command not found hook
 [ -f /usr/share/doc/pkgfile/command-not-found.zsh ] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Path expansion
-PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 
 # Aliases
 alias sudo='sudo '
