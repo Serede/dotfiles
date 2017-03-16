@@ -62,6 +62,11 @@ set directory=/var/tmp//,/tmp//
 set backupdir=/var/tmp//,/tmp//
 set undodir=/var/tmp//,/tmp//
 
+" Custom line numbers and scrolloff
+set number
+set relativenumber
+set scrolloff=2
+
 " Custom indentation
 set tabstop=4
 set shiftwidth=4
@@ -69,10 +74,6 @@ set expandtab
 
 " Custom tags file
 set tags+=.git/tags
-
-" Line numbers
-set number
-set relativenumber
 
 " Rainbow Parentheses for Lisp
 let g:lisp_rainbow = 1
