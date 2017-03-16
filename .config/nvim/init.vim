@@ -70,6 +70,10 @@ set expandtab
 " Custom tags file
 set tags+=.git/tags
 
+" Line numbers
+set number
+set relativenumber
+
 " Rainbow Parentheses for Lisp
 let g:lisp_rainbow = 1
 
