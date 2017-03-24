@@ -165,18 +165,18 @@ bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         tray_output none
         colors {
-            background #2B2E37
-                statusline #FFFFFF
-                separator #D3DAE3
-                focused_workspace   #5294E2 #5294E2 #000000
-                active_workspace    #5294E2 #5294E2 #000000
-                inactive_workspace  #2B2E37 #2B2E37 #D3DAE3
-                urgent_workspace    #FFBA4E #FFBA4E #000000
+            background #13191C
+                statusline #B6B9BC
+                separator #B6B9BC
+                focused_workspace   #00BCD4 #00BCD4 #000000
+                active_workspace    #00BCD4 #00BCD4 #000000
+                inactive_workspace  #13191C #13191C #B6B9BC
+                urgent_workspace    #FF6E40 #FF6E40 #000000
         }
 }
 
 # class                 border  backgr. text    indicator
-client.focused          #5294E2 #5294E2 #FFFFFF #5294E2
-client.focused_inactive #383C4A #383C4A #D3DAE3 #383C4A
-client.unfocused        #383C4A #383C4A #D3DAE3 #383C4A
-client.urgent           #FFBA4E #FFBA4E #FFFFFF #FFBA4E
+client.focused          #00BCD4 #00BCD4 #000000 #00BCD4
+client.focused_inactive #3E515A #3E515A #B6B9BC #3E515A
+client.unfocused        #3E515A #3E515A #B6B9BC #3E515A
+client.urgent           #FF6E40 #FF6E40 #000000 #FF6E40
