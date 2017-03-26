@@ -79,12 +79,12 @@ set tags+=.git/tags
 let g:lisp_rainbow = 1
 
 " Custom mappings
-nmap <Leader>hs :nohlsearch<CR>
-nmap <Leader>ft :%s/\s\+$//gc<CR>
 nmap <A-h> <C-w>h
 nmap <A-j> <C-w>j
 nmap <A-k> <C-w>k
 nmap <A-l> <C-w>l
+nmap <Leader>hs :nohlsearch<CR>
+nmap <Leader>ft :%s/\s\+$//gc<CR>
 
 " PLUGINS
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
@@ -122,7 +122,7 @@ let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/include/clang/'
 
 " Slimv settings
-let g:slimv_leader = '_'
+let g:slimv_leader = '\'
 
 " Vimtex settings
 let g:vimtex_view_method = 'zathura'
@@ -146,11 +146,8 @@ nmap <Leader>n :NERDTreeToggle<CR>
 let g:NERDTreeMinimalUI = 1
 
 " Airline settings
-set laststatus=2
-set ttimeoutlen=50
 let g:airline_theme = 'base16_bright'
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#ycm#enabled = 1
 call airline#parts#define_accent('linenr', 'none')
 call airline#parts#define_accent('maxlinenr', 'none')
 
