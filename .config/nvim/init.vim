@@ -95,7 +95,7 @@ endif
 
 call plug#begin()
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'edkolev/promptline.vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'ervandew/supertab'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -105,7 +105,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
-Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -114,7 +113,7 @@ Plug 'zchee/deoplete-jedi'
 call plug#end()
 
 " Fancy colorscheme
-colorscheme molokai
+colorscheme nord
 
 " Deoplete settings
 let g:deoplete#enable_at_startup = 1
@@ -146,16 +145,6 @@ nmap <Leader>n :NERDTreeToggle<CR>
 let g:NERDTreeMinimalUI = 1
 
 " Airline settings
-let g:airline_theme = 'base16_bright'
 let g:airline_powerline_fonts = 1
 call airline#parts#define_accent('linenr', 'none')
 call airline#parts#define_accent('maxlinenr', 'none')
-
-" Promptline settings
-let g:promptline_preset = {
-            \'a': [ '%m', '%n' ],
-            \'b': [ '%1~', promptline#slices#vcs_branch() ],
-            \'c': [ promptline#slices#python_virtualenv(), '%#' ],
-            \'x': [ '$_promptline_vim_mode' ],
-            \'y': [ '$_promptline_exit_code' ]}
-let g:promptline_theme = 'airline_insert'
