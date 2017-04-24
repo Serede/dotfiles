@@ -27,23 +27,23 @@ key[Right]="^[[C"
 key[Left]="^[[D"
 
 function bind2maps () {
-	local i sequence widget
-	local -a maps
+    local i sequence widget
+    local -a maps
 
-	while [[ "$1" != "--" ]]; do
-		maps+=( "$1" )
-		shift
-	done
-	shift
+    while [[ "$1" != "--" ]]; do
+        maps+=( "$1" )
+        shift
+    done
+    shift
 
-	sequence="${key[$1]}"
-	widget="$2"
+    sequence="${key[$1]}"
+    widget="$2"
 
-	[[ -z "$sequence" ]] && return 1
+    [[ -z "$sequence" ]] && return 1
 
-	for i in "${maps[@]}"; do
-		bindkey -M "$i" "$sequence" "$widget"
-	done
+    for i in "${maps[@]}"; do
+        bindkey -M "$i" "$sequence" "$widget"
+    done
 }
 
 bind2maps emacs             -- Home1       beginning-of-line
@@ -88,56 +88,56 @@ ttyctl -f
 # Fancy prompt
 if [ -f ~/.powerlevel9k/powerlevel9k.zsh-theme ]; then
     source ~/.powerlevel9k/powerlevel9k.zsh-theme
-    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs virtualenv rbenv custom_indicator)
+    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context custom_dir vcs virtualenv rbenv custom_prompt)
     POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status)
+    POWERLEVEL9K_CONTEXT_TEMPLATE="%B%m%b $(print_icon 'LEFT_SUBSEGMENT_SEPARATOR') %B%n%b"
     POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='black'
     POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='cyan'
     POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND='white'
     POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND='red'
-    POWERLEVEL9K_DIR_HOME_FOREGROUND='black'
-    POWERLEVEL9K_DIR_HOME_BACKGROUND='blue'
-    POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='black'
-    POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='blue'
-    POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='black'
-    POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='blue'
+    POWERLEVEL9K_SHORTEN_DIR_LENGTH='1'
+    POWERLEVEL9K_SHORTEN_DELIMITER=''
+    POWERLEVEL9K_CUSTOM_DIR='echo %1~'
+    POWERLEVEL9K_CUSTOM_DIR_FOREGROUND='black'
+    POWERLEVEL9K_CUSTOM_DIR_BACKGROUND='blue'
     POWERLEVEL9K_VCS_CLEAN_FOREGROUND='black'
     POWERLEVEL9K_VCS_CLEAN_BACKGROUND='blue'
     POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='black'
     POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='blue'
     POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='black'
     POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='blue'
-    POWERLEVEL9K_VIRTUALENV_FOREGROUND='007'
+    POWERLEVEL9K_VIRTUALENV_FOREGROUND='white'
     POWERLEVEL9K_VIRTUALENV_BACKGROUND='008'
-    POWERLEVEL9K_RBENV_FOREGROUND='007'
+    POWERLEVEL9K_RBENV_FOREGROUND='white'
     POWERLEVEL9K_RBENV_BACKGROUND='008'
-    POWERLEVEL9K_CUSTOM_INDICATOR='echo %#'
-    POWERLEVEL9K_CUSTOM_INDICATOR_FOREGROUND='007'
-    POWERLEVEL9K_CUSTOM_INDICATOR_BACKGROUND='008'
+    POWERLEVEL9K_CUSTOM_PROMPT='echo %#'
+    POWERLEVEL9K_CUSTOM_PROMPT_FOREGROUND='white'
+    POWERLEVEL9K_CUSTOM_PROMPT_BACKGROUND='008'
     POWERLEVEL9K_VI_INSERT_MODE_STRING=''
-    POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='007'
+    POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='white'
     POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='008'
-    POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='007'
+    POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='white'
     POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='008'
     POWERLEVEL9K_STATUS_OK_FOREGROUND='black'
     POWERLEVEL9K_STATUS_OK_BACKGROUND='cyan'
     POWERLEVEL9K_STATUS_ERROR_FOREGROUND='black'
-    POWERLEVEL9K_STATUS_ERROR_BACKGROUND='red'
-	function zle-line-init zle-keymap-select {
-		zle reset-prompt
-	}
-	zle -N zle-line-init
-	zle -N zle-keymap-select
-	export KEYTIMEOUT=1
+    POWERLEVEL9K_STATUS_ERROR_BACKGROUND='magenta'
+    function zle-line-init zle-keymap-select {
+        zle reset-prompt
+    }
+    zle -N zle-line-init
+    zle -N zle-keymap-select
+    export KEYTIMEOUT=1
 else
-	PS1="[%F{%(!.red.blue)}%B%n%b%f@%B%m%b %1~]%# "
-	RPS1=
-	function zle-line-init zle-keymap-select {
-		RPS1="${${KEYMAP/vicmd/"%F{yellow}%B[NORMAL]%b%f"}/(main|viins)/} [%F{cyan}%?%f]"
-		zle reset-prompt
-	}
-	zle -N zle-line-init
-	zle -N zle-keymap-select
-	export KEYTIMEOUT=1
+    PS1="[%F{%(!.red.blue)}%B%n%b%f@%B%m%b %1~]%# "
+    RPS1=
+    function zle-line-init zle-keymap-select {
+        RPS1="${${KEYMAP/vicmd/"%F{yellow}%B[NORMAL]%b%f"}/(main|viins)/} [%F{cyan}%?%f]"
+        zle reset-prompt
+    }
+    zle -N zle-line-init
+    zle -N zle-keymap-select
+    export KEYTIMEOUT=1
 fi
 
 # Ruby paths
@@ -164,12 +164,12 @@ alias fgrep='fgrep --color=auto'
 alias cupstart="systemctl start org.cups.cupsd.service"
 alias cupstop="systemctl stop org.cups.cupsd.service"
 if command -v nvim >/dev/null 2>&1; then
-	alias vim="nvim"
-	alias vimdiff="nvim -d"
-	alias vi="nvim"
+    alias vim="nvim"
+    alias vimdiff="nvim -d"
+    alias vi="nvim"
 fi
 
 # Sprunge
 sprunge() {
-	curl -F 'sprunge=<-' http://sprunge.us
+    curl -F 'sprunge=<-' http://sprunge.us
 }
