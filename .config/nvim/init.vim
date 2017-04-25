@@ -105,6 +105,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -114,6 +115,7 @@ call plug#end()
 
 " Fancy colorscheme
 colorscheme nord
+set background=dark
 
 " Deoplete settings
 let g:deoplete#enable_at_startup = 1
