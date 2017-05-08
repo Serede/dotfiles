@@ -86,7 +86,7 @@ ttyctl -f
 [[ $(cat /proc/$PPID/cmdline) =~ "mate-terminal" ]] && TERM=xterm-256color
 
 # Fancy prompt
-if [ -f ~/.powerlevel9k/powerlevel9k.zsh-theme ]; then
+if [ -f ~/.powerlevel9k/powerlevel9k.zsh-theme ] && [ $(tput colors) -eq 256 ]; then
     source ~/.powerlevel9k/powerlevel9k.zsh-theme
     POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context custom_dir vcs virtualenv rbenv custom_prompt)
     POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status)
