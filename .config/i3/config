@@ -153,7 +153,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 focus_follows_mouse no
-gaps inner 8
+gaps inner 16
 gaps outer 0
 new_window pixel 1
 new_float pixel 1
