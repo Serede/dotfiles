@@ -79,10 +79,10 @@ set tags+=.git/tags
 let g:lisp_rainbow = 1
 
 " Custom mappings
-nmap <A-h> <C-w>h
-nmap <A-j> <C-w>j
-nmap <A-k> <C-w>k
-nmap <A-l> <C-w>l
+nmap <A-H> <C-w>H
+nmap <A-J> <C-w>J
+nmap <A-K> <C-w>K
+nmap <A-L> <C-w>L
 nmap <Leader>hs :nohlsearch<CR>
 nmap <Leader>ft :%s/\s\+$//gc<CR>
 
@@ -96,6 +96,8 @@ endif
 call plug#begin()
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'arcticicestudio/nord-vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'edkolev/tmuxline.vim'
 Plug 'ervandew/supertab'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -152,3 +154,10 @@ let g:NERDTreeMinimalUI = 1
 let g:airline_powerline_fonts = 1
 call airline#parts#define_accent('linenr', 'none')
 call airline#parts#define_accent('maxlinenr', 'none')
+
+" tmux-navigator settings
+"let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
