@@ -1,0 +1,46 @@
+! URxvt
+
+! General settings
+urxvt.saveLines: 10000
+urxvt.scrollBar: false
+urxvt.termName: xterm-256color
+urxvt.urgentOnBell: true
+urxvt.cursorBlink: true
+URxvt.iso14755 : false
+
+! Extensions
+urxvt.perl-ext-common: default,matcher
+urxvt.urlLauncher: xdg-open
+urxvt.underlineURLs: True
+urxvt.matcher.button: 1
+
+! Keybindings
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+! Font
+urxvt.font: xft:Noto\ Mono\ for\ Powerline:size=10
+
+! Transparency
+urxvt.depth: 32
+
+! Colors
+urxvt.foreground:  #D8DEE9
+urxvt.background:  [95]#2E3440
+urxvt.cursorColor: #D8DEE9
+urxvt.color0:      #3B4252
+urxvt.color1:      #BF616A
+urxvt.color2:      #A3BE8C
+urxvt.color3:      #EBCB8B
+urxvt.color4:      #81A1C1
+urxvt.color5:      #B48EAD
+urxvt.color6:      #88C0D0
+urxvt.color7:      #E5E9F0
+urxvt.color8:      #4C566A
+urxvt.color9:      #BF616A
+urxvt.color10:     #A3BE8C
+urxvt.color11:     #EBCB8B
+urxvt.color12:     #81A1C1
+urxvt.color13:     #B48EAD
+urxvt.color14:     #8FBCBB
+urxvt.color15:     #ECEFF4
