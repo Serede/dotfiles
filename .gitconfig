@@ -9,7 +9,7 @@
 [push]
 	default = simple
 [diff]
-	tool = nvim -d
+	tool = meld
 [init]
 	templatedir = ~/.git_template
 [alias]

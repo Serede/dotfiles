@@ -15,10 +15,12 @@ zstyle ':completion:*' menu select
 typeset -A key
 key[Home1]="^[[H"
 key[Home2]="^[OH"
-key[Home3]="^[[7~"
+key[Home3]="^[[1~"
+key[Home4]="^[[7~"
 key[End1]="^[[F"
 key[End2]="^[OF"
-key[End3]="^[[8~"
+key[End3]="^[[4~"
+key[End4]="^[[8~"
 key[Insert]="^[[2~"
 key[Delete]="^[[3~"
 key[BackSpace]="^H"
@@ -54,12 +56,16 @@ bind2maps emacs             -- Home2       beginning-of-line
 bind2maps       viins vicmd -- Home2       vi-beginning-of-line
 bind2maps emacs             -- Home3       beginning-of-line
 bind2maps       viins vicmd -- Home3       vi-beginning-of-line
+bind2maps emacs             -- Home4       beginning-of-line
+bind2maps       viins vicmd -- Home4       vi-beginning-of-line
 bind2maps emacs             -- End1        end-of-line
 bind2maps       viins vicmd -- End1        vi-end-of-line
 bind2maps emacs             -- End2        end-of-line
 bind2maps       viins vicmd -- End2        vi-end-of-line
 bind2maps emacs             -- End3        end-of-line
 bind2maps       viins vicmd -- End3        vi-end-of-line
+bind2maps emacs             -- End4        end-of-line
+bind2maps       viins vicmd -- End4        vi-end-of-line
 bind2maps emacs viins       -- Insert      overwrite-mode
 bind2maps             vicmd -- Insert      vi-insert
 bind2maps emacs             -- Delete      delete-char
