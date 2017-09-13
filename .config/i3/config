@@ -174,15 +174,15 @@ bar {
             background #13191C
                 statusline #B6B9BC
                 separator #B6B9BC
-                focused_workspace   #9C27B0 #9C27B0 #000000
-                active_workspace    #9C27B0 #9C27B0 #000000
+                focused_workspace   #673AB7 #673AB7 #FFFFFF
+                active_workspace    #673AB7 #673AB7 #FFFFFF
                 inactive_workspace  #13191C #13191C #B6B9BC
                 urgent_workspace    #FF5252 #FF5252 #000000
         }
 }
 
 # class                 border  backgr. text    indicator
-client.focused          #9C27B0 #9C27B0 #000000 #9C27B0
+client.focused          #673AB7 #673AB7 #FFFFFF #673AB7
 client.focused_inactive #13191C #13191C #B6B9BC #13191C
 client.unfocused        #13191C #13191C #B6B9BC #13191C
 client.urgent           #FF5252 #FF5252 #000000 #FF5252
