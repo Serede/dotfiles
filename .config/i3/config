@@ -158,6 +158,7 @@ gaps outer 0
 new_window pixel 1
 new_float pixel 1
 for_window [class="^albert$"] sticky enable
+for_window [class="^MATLAB R2017a$"] floating enable
 
 # move workspace
 bindsym $mod+m exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
