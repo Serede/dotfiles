@@ -102,7 +102,7 @@ if [ -f ~/.powerlevel9k/powerlevel9k.zsh-theme ] && [ $(tput colors) -eq 256 ]; 
     source ~/.powerlevel9k/powerlevel9k.zsh-theme
     POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context custom_dir vcs virtualenv rbenv custom_prompt)
     POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status)
-    POWERLEVEL9K_CONTEXT_TEMPLATE="%B%m%b $(print_icon 'LEFT_SUBSEGMENT_SEPARATOR') %B%n%b"
+    POWERLEVEL9K_CONTEXT_TEMPLATE="%B%m%b $(print_icon 'LEFT_SUBSEGMENT_SEPARATOR') %n"
     POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='black'
     POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='cyan'
     POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND='white'
