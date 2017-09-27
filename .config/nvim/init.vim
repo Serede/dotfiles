@@ -150,7 +150,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'kovisoft/slimv', { 'for': 'lisp' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'neomake/neomake'
 Plug 'sheerun/vim-polyglot'
@@ -177,11 +176,6 @@ let g:slimv_leader = '\'
 
 " Vimtex settings
 let g:vimtex_view_method = 'zathura'
-
-" Gutentags settings
-let g:gutentags_ctags_tagfile = '.git/tags'
-let g:gutentags_project_root = ['.git']
-let g:gutentags_add_default_project_roots = 0
 
 " Tagbar settings
 nmap <Leader>t :TagbarToggle<CR>
