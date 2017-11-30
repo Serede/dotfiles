@@ -1,9 +1,9 @@
 configuration {
-	modi: "drun,run,window,ssh";
+	modi: "drun,run,window,ssh,calc:~/.config/rofi/scripts/calc";
 /*	width: 50;*/
 	lines: 5;
 /*	columns: 1;*/
-	font: "Noto Sans 24";
+	font: "Noto Sans 12";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
@@ -19,9 +19,9 @@ configuration {
 /*	run-shell-command: "{terminal} -e {cmd}";*/
 /*	window-command: "xkill -id {window}";*/
 	drun-icon-theme: "Arc";
-/*	disable-history: false;*/
-/*	sort: false;*/
-/*	levenshtein-sort: false;*/
+	disable-history: true;
+	sort: true;
+	levenshtein-sort: false;
 /*	case-sensitive: false;*/
 /*	cycle: true;*/
 /*	sidebar-mode: false;*/
@@ -54,7 +54,7 @@ configuration {
 	color-urgent: "argb:FFFF5252, argb:FF000000, argb:FFFF5252, argb:FFFF5252, argb:FF000000";
 	color-active: "argb:FF00BCD4, argb:FF000000, argb:FF00BCD4, argb:FF00BCD4, argb:FF000000";
 /*                bg,             border,        separator    */
-	color-window: "argb:E613191C, argb:E613191C, argb:E613191C";
+	color-window: "argb:E613191C, argb:00000000, argb:00000000";
 /*	plugin-path: "/usr/lib/rofi";*/
 /*	pid: "/run/user/1000/rofi.pid";*/
 /*	display-window: ;*/
