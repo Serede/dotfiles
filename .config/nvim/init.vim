@@ -123,7 +123,7 @@ set background=dark
 let g:deoplete#enable_at_startup = 1
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-4.0/lib/libclang.so.1'
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang.so.1'
 let g:deoplete#sources#clang#clang_header = '/usr/include/clang/'
 
 " Slimv settings
