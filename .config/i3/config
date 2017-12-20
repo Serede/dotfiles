@@ -155,6 +155,9 @@ bindsym $mod+r mode "resize"
 # move workspace
 bindsym $mod+m exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
+# focus next monitor
+bindsym $mod+Tab focus output left
+
 # swap workspaces between monitors
 bindsym $mod+Shift+s exec /home/serede/.config/i3/scripts/swap.py
 
