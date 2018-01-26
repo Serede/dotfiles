@@ -12,13 +12,16 @@ zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' menu select
 
 # Keybindings
+bindkey -e
 typeset -A key
 key[Home1]="^[[H"
 key[Home2]="^[OH"
-key[Home3]="^[[7~"
+key[Home3]="^[[1~"
+key[Home4]="^[[7~"
 key[End1]="^[[F"
 key[End2]="^[OF"
-key[End3]="^[[8~"
+key[End3]="^[[4~"
+key[End4]="^[[8~"
 key[Insert]="^[[2~"
 key[Delete]="^[[3~"
 key[BackSpace]="^H"
@@ -54,12 +57,16 @@ bind2maps emacs             -- Home2       beginning-of-line
 bind2maps       viins vicmd -- Home2       vi-beginning-of-line
 bind2maps emacs             -- Home3       beginning-of-line
 bind2maps       viins vicmd -- Home3       vi-beginning-of-line
+bind2maps emacs             -- Home4       beginning-of-line
+bind2maps       viins vicmd -- Home4       vi-beginning-of-line
 bind2maps emacs             -- End1        end-of-line
 bind2maps       viins vicmd -- End1        vi-end-of-line
 bind2maps emacs             -- End2        end-of-line
-bind2maps       viins vicmd -- End3        vi-end-of-line
-bind2maps emacs             -- End3        end-of-line
 bind2maps       viins vicmd -- End2        vi-end-of-line
+bind2maps emacs             -- End3        end-of-line
+bind2maps       viins vicmd -- End3        vi-end-of-line
+bind2maps emacs             -- End4        end-of-line
+bind2maps       viins vicmd -- End4        vi-end-of-line
 bind2maps emacs viins       -- Insert      overwrite-mode
 bind2maps             vicmd -- Insert      vi-insert
 bind2maps emacs             -- Delete      delete-char
@@ -83,7 +90,6 @@ HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 setopt histignoredups
 setopt appendhistory
-bindkey -v
 
 # Freeze the terminal
 ttyctl -f
@@ -95,8 +101,8 @@ ttyctl -f
 if [ -f ~/.powerlevel9k/powerlevel9k.zsh-theme ] && [ $(tput colors) -eq 256 ]; then
     source ~/.powerlevel9k/powerlevel9k.zsh-theme
     POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context custom_dir vcs virtualenv rbenv custom_prompt)
-    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status)
-    POWERLEVEL9K_CONTEXT_TEMPLATE="%B%m%b $(print_icon 'LEFT_SUBSEGMENT_SEPARATOR') %B%n%b"
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
+    POWERLEVEL9K_CONTEXT_TEMPLATE="%B%m%b $(print_icon 'LEFT_SUBSEGMENT_SEPARATOR') %n"
     POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='black'
     POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='cyan'
     POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND='white'
@@ -120,31 +126,13 @@ if [ -f ~/.powerlevel9k/powerlevel9k.zsh-theme ] && [ $(tput colors) -eq 256 ]; 
     POWERLEVEL9K_CUSTOM_PROMPT='echo %#'
     POWERLEVEL9K_CUSTOM_PROMPT_FOREGROUND='white'
     POWERLEVEL9K_CUSTOM_PROMPT_BACKGROUND='008'
-    POWERLEVEL9K_VI_INSERT_MODE_STRING=''
-    POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='white'
-    POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='008'
-    POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='white'
-    POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='008'
     POWERLEVEL9K_STATUS_OK_FOREGROUND='black'
     POWERLEVEL9K_STATUS_OK_BACKGROUND='cyan'
     POWERLEVEL9K_STATUS_ERROR_FOREGROUND='black'
     POWERLEVEL9K_STATUS_ERROR_BACKGROUND='magenta'
-    function zle-line-init zle-keymap-select {
-        zle reset-prompt
-    }
-    zle -N zle-line-init
-    zle -N zle-keymap-select
-    export KEYTIMEOUT=1
 else
     PS1="[%F{%(!.red.blue)}%B%n%b%f@%B%m%b %1~]%# "
-    RPS1=
-    function zle-line-init zle-keymap-select {
-        RPS1="${${KEYMAP/vicmd/"%F{yellow}%B[NORMAL]%b%f"}/(main|viins)/} [%F{cyan}%?%f]"
-        zle reset-prompt
-    }
-    zle -N zle-line-init
-    zle -N zle-keymap-select
-    export KEYTIMEOUT=1
+    RPS1="[%F{cyan}%?%f]"
 fi
 
 # Ruby paths
