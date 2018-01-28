@@ -1,9 +1,4 @@
-" An example for a vimrc file.
-"
-" To use it, copy it to
-"     for Unix:     $HOME/.config/nvim/init.vim
-"     for Windows:  %LOCALAPPDATA%\nvim\init.vim
-
+" Convenient settings
 set backup             " keep a backup file (restore to previous version)
 set undofile           " keep an undo file (undo changes after closing)
 set ruler              " show the cursor position all the time
@@ -86,6 +81,52 @@ nmap <A-L> <C-w>L
 nmap <Leader>hs :nohlsearch<CR>
 nmap <Leader>ft :%s/\s\+$//gc<CR>
 
+" netrw explorer
+fun! VexToggle(dir)
+    if exists("t:vex_buf_nr")
+        3
+        4
+        5
+        6
+        7
+        call VexClose()
+    else
+        call VexOpen(a:dir)
+    endif
+endf
+fun! VexOpen(dir)
+    let g:netrw_browse_split=4 " open files in previous window
+    let vex_width = 25
+    execute "Vexplore " . a:dir
+    let t:vex_buf_nr = bufnr("%")
+    wincmd H
+    call VexSize(vex_width)
+endf
+fun! VexClose()
+    let cur_win_nr = winnr()
+    let target_nr = ( cur_win_nr == 1 ? winnr("#") : cur_win_nr )
+    1wincmd w
+    close
+    unlet t:vex_buf_nr
+    execute (target_nr - 1) . "wincmd w"
+    call NormalizeWidths()
+endf
+fun! VexSize(vex_width)
+    execute "vertical resize" . a:vex_width
+    set winfixwidth
+    call NormalizeWidths()
+endf
+fun! NormalizeWidths()
+    let eadir_pref = &eadirection
+    set eadirection=hor
+    set equalalways! equalalways!
+    let &eadirection = eadir_pref
+endf
+let g:netrw_banner=0            " no banner
+let g:netrw_altv=1              " open files on right
+let g:netrw_preview=1           " open previews vertically
+nmap <Leader>n :call VexToggle("")<CR>
+
 " PLUGINS
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
     silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -99,14 +140,12 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
 Plug 'ervandew/supertab'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'kovisoft/slimv', { 'for': 'lisp' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'neomake/neomake'
-Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -132,11 +171,6 @@ let g:slimv_leader = '\'
 " Vimtex settings
 let g:vimtex_view_method = 'zathura'
 
-" Gutentags settings
-let g:gutentags_ctags_tagfile = '.git/tags'
-let g:gutentags_project_root = ['.git']
-let g:gutentags_add_default_project_roots = 0
-
 " Tagbar settings
 nmap <Leader>t :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
@@ -145,10 +179,6 @@ let g:tagbar_sort = 0
 
 " Neomake settings
 autocmd! BufReadPost,BufWritePost * Neomake
-
-" NERDTree settings
-nmap <Leader>n :NERDTreeToggle<CR>
-let g:NERDTreeMinimalUI = 1
 
 " Airline settings
 let g:airline_powerline_fonts = 1
