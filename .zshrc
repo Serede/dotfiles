@@ -25,40 +25,24 @@ SAVEHIST=$HISTSIZE
 setopt  histignoredups appendhistory autocd notify
 unsetopt beep extendedglob nomatch
 
+# Default prompt
+PS1="[%F{%(!.red.blue)}%B%n%b%f@%B%m%b %1~]%# "
+RPS1="[%F{cyan}%?%f]"
+
 # Keybindings
 bindkey -e
 typeset -A key
-#key[Home1]='^[[H'
-#key[Home2]='^[OH'
-#key[Home3]='^[[1~'
-#key[Home4]='^[[7~'
 key[Home]="$terminfo[khome]"
-#key[End1]='^[[F'
-#key[End2]='^[OF'
-#key[End3]='^[[4~'
-#key[End4]='^[[8~'
 key[End]="$terminfo[kend]"
-#key[PageUp]='^[[5~'
 key[PageUp]="$terminfo[kpp]"
-#key[PageDown]='^[[6~'
 key[PageDown]="$terminfo[knp]"
-#key[Insert]='^[[2~'
 key[Insert]="$terminfo[kich1]"
-#key[Delete]='^[[3~'
 key[Delete]="$terminfo[kdch1]"
-#key[BackSpace]='^H'
 key[Backspace]="$terminfo[kbs]"
-#key[BackTab]='^[[Z'
 key[Down]="$terminfo[kcbt]"
-#key[Up1]='^[[A'
-#key[Up2]='^[OA'
 key[Up]="$terminfo[kcuu1]"
-#key[Down1]='^[[B'
-#key[Down2]='^[OB'
 key[Down]="$terminfo[kcud1]"
-#key[Right]='^[[C'
 key[Right]="$terminfo[kcuf1]"
-#key[Left]='^[[D'
 key[Left]="$terminfo[kcub1]"
 
 function bind2maps () {
@@ -79,24 +63,8 @@ function bind2maps () {
 
 bind2maps emacs             -- Home        beginning-of-line
 bind2maps       viins vicmd -- Home        vi-beginning-of-line
-#bind2maps emacs             -- Home1       beginning-of-line
-#bind2maps       viins vicmd -- Home1       vi-beginning-of-line
-#bind2maps emacs             -- Home2       beginning-of-line
-#bind2maps       viins vicmd -- Home2       vi-beginning-of-line
-#bind2maps emacs             -- Home3       beginning-of-line
-#bind2maps       viins vicmd -- Home3       vi-beginning-of-line
-#bind2maps emacs             -- Home4       beginning-of-line
-#bind2maps       viins vicmd -- Home4       vi-beginning-of-line
 bind2maps emacs             -- End         end-of-line
 bind2maps       viins vicmd -- End         vi-end-of-line
-#bind2maps emacs             -- End1        end-of-line
-#bind2maps       viins vicmd -- End1        vi-end-of-line
-#bind2maps emacs             -- End2        end-of-line
-#bind2maps       viins vicmd -- End2        vi-end-of-line
-#bind2maps emacs             -- End3        end-of-line
-#bind2maps       viins vicmd -- End3        vi-end-of-line
-#bind2maps emacs             -- End4        end-of-line
-#bind2maps       viins vicmd -- End4        vi-end-of-line
 bind2maps emacs viins       -- PageUp      history-beginning-search-backward-end
 bind2maps emacs viins       -- PageDown    history-beginning-search-forward-end
 bind2maps emacs viins       -- Insert      overwrite-mode
@@ -108,11 +76,7 @@ bind2maps       viins       -- BackSpace   vi-backward-delete-char
 bind2maps             vicmd -- BackSpace   vi-backward-char
 bind2maps emacs viins vicmd -- BackTab     reverse-menu-complete
 bind2maps emacs viins vicmd -- Up          history-beginning-search-backward-end
-#bind2maps emacs viins vicmd -- Up1         history-beginning-search-backward-end
-#bind2maps emacs viins vicmd -- Up2         history-beginning-search-backward-end
 bind2maps emacs viins vicmd -- Down        history-beginning-search-forward-end
-#bind2maps emacs viins vicmd -- Down1       history-beginning-search-forward-end
-#bind2maps emacs viins vicmd -- Down2       history-beginning-search-forward-end
 bind2maps emacs             -- Left        backward-char
 bind2maps       viins vicmd -- Left        vi-backward-char
 bind2maps emacs             -- Right       forward-char
@@ -120,24 +84,20 @@ bind2maps       viins vicmd -- Right       vi-forward-char
 
 unfunction bind2maps
 
+# Freeze the terminal
+ttyctl -f
+
 # Colorful mate-terminal
 [[ $(cat /proc/$PPID/cmdline) =~ 'mate-terminal' ]] && TERM=xterm-256color
 
-# Set default prompt
-PS1="[%F{%(!.red.blue)}%B%n%b%f@%B%m%b %1~]%# "
-RPS1="[%F{cyan}%?%f]"
+# Command not found hook
+[ -f /usr/share/doc/pkgfile/command-not-found.zsh ] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # Ruby paths
 if command -v ruby >/dev/null 2>&1; then
     PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
     export GEM_HOME="$(ruby -e 'print Gem.user_dir')"
 fi
-
-# Command not found hook
-[ -f /usr/share/doc/pkgfile/command-not-found.zsh ] && source /usr/share/doc/pkgfile/command-not-found.zsh
-
-# Freeze the terminal
-ttyctl -f
 
 # Aliases
 alias zplug='LC_ALL=en_US.UTF-8 zplug'
@@ -172,7 +132,6 @@ zplug 'junegunn/fzf-bin', from:gh-r, as:command, rename-to:fzf
 zplug 'zsh-users/zsh-completions'
 
 zplug check || zplug install
-
 zplug load
 
 # powerlevel9k settings
