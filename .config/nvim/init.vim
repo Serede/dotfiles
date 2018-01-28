@@ -1,9 +1,4 @@
-" An example for a vimrc file.
-"
-" To use it, copy it to
-"     for Unix:     $HOME/.config/nvim/init.vim
-"     for Windows:  %LOCALAPPDATA%\nvim\init.vim
-
+" Convenient settings
 set backup             " keep a backup file (restore to previous version)
 set undofile           " keep an undo file (undo changes after closing)
 set ruler              " show the cursor position all the time
@@ -132,7 +127,6 @@ let g:netrw_altv=1              " open files on right
 let g:netrw_preview=1           " open previews vertically
 nmap <Leader>n :call VexToggle("")<CR>
 
-
 " PLUGINS
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
     silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -146,7 +140,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
 Plug 'ervandew/supertab'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'kovisoft/slimv', { 'for': 'lisp' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
