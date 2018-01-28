@@ -1,15 +1,27 @@
 # Completion
-zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
-zstyle ':completion:*' format '%F{blue}-- %d --%f'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' ignore-parents parent pwd
-zstyle ':completion:*' insert-unambiguous false
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}'
-zstyle ':completion:*' menu select
-zstyle ':completion:*' select-prompt ''
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path '.zcache'
-zstyle :compinstall filename '/home/serede/.zshrc'
+zstyle ':completion:*' cache-path "$HOME/.zcompcache"
+
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
+
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*' match-original only
+zstyle ':completion:*' max-errors 2 numeric
+zstyle -e ':completion:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3>7?7:($#PREFIX+$#SUFFIX)/3))numeric)'
+
+zstyle ':completion:*' format '%F{blue}-- %d --%f'
+zstyle ':completion:*:corrections' format '%F{yellow}-- %d (errors: %e) --%f'
+zstyle ':completion:*:descriptions' format '%F{cyan}-- %d --%f'
+zstyle ':completion:*:messages' format '%F{green} -- %d --%f'
+zstyle ':completion:*:warnings' format '%F{red}-- no matches found --%f'
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' select-prompt ''
+zstyle ':completion:*' auto-description '%d'
+zstyle ':completion:*' verbose yes
+
+zstyle :compinstall filename "$HOME/.zshrc"
 
 # Autoload
 autoload -Uz compinit colors history-search-end
