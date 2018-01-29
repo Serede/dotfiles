@@ -152,19 +152,23 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-focus_follows_mouse no
-gaps inner 8
-gaps outer 0
-new_window pixel 1
-new_float pixel 1
-for_window [class="^albert$"] sticky enable
-for_window [class="^MATLAB R2017a$"] floating enable
-
 # move workspace
 bindsym $mod+m exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
+# focus next monitor
+bindsym $mod+Tab focus output left
+
 # swap workspaces between monitors
-bindsym $mod+Shift+s exec ~/.config/i3/scripts/swap.py
+bindsym $mod+Shift+s exec /home/serede/.config/i3/scripts/swap.py
+
+# lock desktop
+bindsym $mod+Shift+colon exec mate-screensaver-command --lock
+
+focus_follows_mouse no
+gaps inner 16
+gaps outer 0
+new_window pixel 1
+new_float pixel 1
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
