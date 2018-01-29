@@ -41,7 +41,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec --no-startup-id albert toggle
+bindsym $mod+d exec --no-startup-id rofi -show
 
 # change focus
 bindsym $mod+h focus left
@@ -152,12 +152,23 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# move workspace
+bindsym $mod+m exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
+
+# focus next monitor
+bindsym $mod+Tab focus output left
+
+# swap workspaces between monitors
+bindsym $mod+Shift+s exec /home/serede/.config/i3/scripts/swap.py
+
+# lock desktop
+bindsym $mod+Shift+colon exec mate-screensaver-command --lock
+
 focus_follows_mouse no
 gaps inner 16
 gaps outer 0
 new_window pixel 1
 new_float pixel 1
-for_window [class="^albert$"] sticky enable
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -168,15 +179,15 @@ bar {
             background #13191C
                 statusline #B6B9BC
                 separator #B6B9BC
-                focused_workspace   #9C27B0 #9C27B0 #000000
-                active_workspace    #9C27B0 #9C27B0 #000000
+                focused_workspace   #673AB7 #673AB7 #FFFFFF
+                active_workspace    #673AB7 #673AB7 #FFFFFF
                 inactive_workspace  #13191C #13191C #B6B9BC
                 urgent_workspace    #FF5252 #FF5252 #000000
         }
 }
 
 # class                 border  backgr. text    indicator
-client.focused          #9C27B0 #9C27B0 #000000 #9C27B0
+client.focused          #673AB7 #673AB7 #FFFFFF #673AB7
 client.focused_inactive #13191C #13191C #B6B9BC #13191C
 client.unfocused        #13191C #13191C #B6B9BC #13191C
 client.urgent           #FF5252 #FF5252 #000000 #FF5252

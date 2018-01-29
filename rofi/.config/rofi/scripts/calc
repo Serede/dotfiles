@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "$@" | bc -l | tee >(tr -d '\n' | xsel -b)
