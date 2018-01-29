@@ -20,13 +20,13 @@ $(targets):%:
 	@$(foreach file,$(shell find $(DOTFILES)/$* -type f -printf '%P '),\
 		if [ ! -d $(HOME)/$(file) ] && [ ! -f $(HOME)/$(file) ]; then \
 			if [ ! -d $(HOME)/$(dir $(file)) ]; then \
-				echo -e "$(_color_c)[DIR]$(_color_end) \c"; \
+				printf "$(_color_c)[DIR]$(_color_end) "; \
 				mkdir -pv $(HOME)/$(dir $(file)) | tail -n 1; \
 			fi;\
-			echo -e "$(_color_g)[LNK]$(_color_end) \c"; \
+			printf "$(_color_g)[LNK]$(_color_end) "; \
 			ln -fsv $(DOTFILES)/$*/$(file) $(HOME)/$(file); \
 		else \
-			echo -e "$(_color_m)[IGN]$(_color_end) '$(HOME)/$(file)' already exists."; \
+			printf "$(_color_m)[IGN]$(_color_end) '$(HOME)/$(file)' already exists.\n"; \
 		fi;\
 	)
 
@@ -36,9 +36,9 @@ clean: $(clean_targets)
 $(clean_targets):%_clean:
 	@$(foreach file,$(shell find $(DOTFILES)/$* -type f -printf '%P '),\
 		if [ -L $(HOME)/$(file) ]; then \
-			echo -e "$(_color_y)[DEL]$(_color_end) \c"; \
+			printf "$(_color_y)[DEL]$(_color_end) "; \
 			rm -fv $(HOME)/$(file); \
 		elif [ -e $(HOME)/$(file) ]; then \
-			echo -e "$(_color_m)[IGN]$(_color_end) '$(HOME)/$(file)' is not a symlink."; \
+			printf "$(_color_m)[IGN]$(_color_end) '$(HOME)/$(file)' is not a symlink.\n"; \
 		fi;\
 	)
