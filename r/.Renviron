@@ -1,1 +1,1 @@
-R_LIBS=~/.R/library
+R_LIBS_USER=~/.R/library
