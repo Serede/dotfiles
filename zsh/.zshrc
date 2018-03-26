@@ -128,6 +128,9 @@ if command -v nvim >/dev/null 2>&1; then
     alias vimdiff='nvim -d'
     alias vi='nvim'
 fi
+alias virtualenv='virtualenv --system-site-packages'
+alias virtualenv2='virtualenv2 --system-site-packages'
+alias virtualenv3='virtualenv3 --system-site-packages'
 
 # Sprunge
 sprunge() {
