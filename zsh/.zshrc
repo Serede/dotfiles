@@ -117,7 +117,7 @@ alias sudo='sudo '
 alias ls='ls --color=auto'
 alias ll='ls -la'
 alias l.='ls -d .* --color=auto'
-alias diff='diff --color=auto'
+#alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -128,6 +128,9 @@ if command -v nvim >/dev/null 2>&1; then
     alias vimdiff='nvim -d'
     alias vi='nvim'
 fi
+alias virtualenv='virtualenv --system-site-packages'
+alias virtualenv2='virtualenv2 --system-site-packages'
+alias virtualenv3='virtualenv3 --system-site-packages'
 
 # Sprunge
 sprunge() {
