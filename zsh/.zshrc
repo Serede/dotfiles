@@ -143,7 +143,7 @@ source ~/.zplug/init.zsh
 
 zplug 'bhilburn/powerlevel9k', use:'powerlevel9k.zsh-theme', if:"[[ $(tput colors) -eq 256 ]]"
 zplug 'junegunn/fzf', use:'shell/*.zsh'
-zplug 'junegunn/fzf-bin', from:gh-r, as:command, rename-to:fzf
+zplug 'junegunn/fzf-bin', from:gh-r, as:command, rename-to:fzf, use:"*linux*arm8*"
 zplug 'zsh-users/zsh-completions'
 
 zplug check || zplug install
