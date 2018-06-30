@@ -132,9 +132,9 @@ alias virtualenv='virtualenv --system-site-packages'
 alias virtualenv2='virtualenv2 --system-site-packages'
 alias virtualenv3='virtualenv3 --system-site-packages'
 
-# Sprunge
-sprunge() {
-    curl -F 'sprunge=<-' http://sprunge.us
+# termbin
+termbin() {
+    nc termbin.com 9999
 }
 
 # PLUGINS

@@ -2,7 +2,7 @@
 	name = Serede Sixty Six
 	email = serede.dev@gmail.com
 [core]
-	editor = nvim
+	editor = vim
 	excludesfile = /home/serede/.gitignore_global
 [color]
 	ui = true
