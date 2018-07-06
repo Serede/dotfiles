@@ -133,9 +133,7 @@ alias virtualenv2='virtualenv2 --system-site-packages'
 alias virtualenv3='virtualenv3 --system-site-packages'
 
 # termbin
-termbin() {
-    nc termbin.com 9999
-}
+alias termbin='nc termbin.com 9999'
 
 # PLUGINS
 [ ! -f ~/.zplug/init.zsh ] && git clone https://github.com/zplug/zplug ~/.zplug
