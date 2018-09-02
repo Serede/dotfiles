@@ -34,7 +34,7 @@ zle -N history-beginning-search-forward-end history-search-end
 HISTFILE=~/.zhistory
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
-setopt  histignoredups appendhistory autocd notify
+setopt  histignoredups appendhistory autocd notify interactivecomments
 unsetopt beep extendedglob nomatch
 
 # Default prompt
