@@ -69,7 +69,7 @@ NextPageKey=PGDN
 #SecondThirdCandWordKey=
 # Saving All Config and Input History
 SaveAllKey=
-# Switch Embeded Preedit
+# Switch Embedded Preedit
 SwitchPreedit=
 # Previous Candidate Word
 #PrevWord=SHIFT_TAB
@@ -84,8 +84,8 @@ SwitchPreedit=
 # No
 # All
 # PerProgram
-ShareStateAmongWindow=PerProgram
-# Estado predeterminado del método de entrada
+#ShareStateAmongWindow=No
+# Default Input Method State
 # Available Value:
 # Inactive
 # Active
@@ -104,7 +104,7 @@ ShareStateAmongWindow=PerProgram
 # Available Value:
 # True False
 #SendTextWhenSwitchEng=True
-# Número de palabra candidata
+# Candidate Word Number
 #CandidateWordNumber=5
 # Give the tips of Phrase
 # Available Value:
@@ -128,15 +128,15 @@ ShowInputWindowAfterTriggering=False
 # Available Value:
 # True False
 #ShowInputWindowOnlyWhenActive=True
-# Mostrar velocidad de entrada
+# Show Input Speed
 # Available Value:
 # True False
 #ShowInputSpeed=False
-# Mostrar versión
+# Show Version
 # Available Value:
 # True False
 #ShowVersion=False
-# No mostrar ventanas de entrada si solo hay una cadena preeditada
+# Do not show input window if there is only preedit string
 # Available Value:
 # True False
 HideInputWindowWhenOnlyPreeditString=True
