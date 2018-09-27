@@ -105,6 +105,9 @@ ttyctl -f
 # Command not found hook
 [ -f /usr/share/doc/pkgfile/command-not-found.zsh ] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
+# Node nvm
+[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
+
 # Ruby paths
 if command -v ruby >/dev/null 2>&1; then
     PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
@@ -180,3 +183,4 @@ if [ -d $ZPLUG_REPOS/bhilburn/powerlevel9k ]; then
     POWERLEVEL9K_STATUS_ERROR_FOREGROUND='black'
     POWERLEVEL9K_STATUS_ERROR_BACKGROUND='magenta'
 fi
+
