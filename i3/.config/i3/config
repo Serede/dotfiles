@@ -33,7 +33,10 @@ floating_modifier $mod
 bindsym $mod+Return exec mate-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+q exec /home/serede/.config/i3/scripts/i3-persist/bin/i3-persist.sh kill
+
+# toggle window lock
+bindsym $mod+Delete exec /home/serede/.config/i3/scripts/i3-persist/bin/i3-persist.sh toggle
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
