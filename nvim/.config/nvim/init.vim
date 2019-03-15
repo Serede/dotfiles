@@ -142,7 +142,6 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'ervandew/supertab'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'kovisoft/slimv', { 'for': 'lisp' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'majutsushi/tagbar'
 Plug 'neomake/neomake'
@@ -164,9 +163,6 @@ let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/include/clang/'
-
-" Slimv settings
-let g:slimv_leader = '\'
 
 " Vimtex settings
 let g:vimtex_view_method = 'zathura'
