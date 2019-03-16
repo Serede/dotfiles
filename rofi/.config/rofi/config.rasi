@@ -50,9 +50,9 @@ configuration {
 	show-match: false;
 /*	theme: ;*/
 /*                bg,             fg,            bgalt,         hlbg,          hlfg         */
-	color-normal: "argb:00000000, argb:FFB6B9BC, argb:00000000, argb:FF00BCD4, argb:FF000000";
+	color-normal: "argb:00000000, argb:FFB6B9BC, argb:00000000, argb:FF4CAF50, argb:FF000000";
 	color-urgent: "argb:FFFF5252, argb:FF000000, argb:FFFF5252, argb:FFFF5252, argb:FF000000";
-	color-active: "argb:FF00BCD4, argb:FF000000, argb:FF00BCD4, argb:FF00BCD4, argb:FF000000";
+	color-active: "argb:FF4CAF50, argb:FF000000, argb:FF4CAF50, argb:FF4CAF50, argb:FF000000";
 /*                bg,             border,        separator    */
 	color-window: "argb:E613191C, argb:00000000, argb:00000000";
 /*	plugin-path: "/usr/lib/rofi";*/
