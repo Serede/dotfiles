@@ -38,8 +38,8 @@ setopt  histignoredups appendhistory autocd notify interactivecomments
 unsetopt beep extendedglob nomatch
 
 # Default prompt
-PS1="[%F{%(!.red.blue)}%B%n%b%f@%B%m%b %1~]%# "
-RPS1="[%F{cyan}%?%f]"
+PS1="[%F{%(!.red.white)}%B%n%b%f@%B%m%b %1~]%# "
+RPS1="[%F{white}%?%f]"
 
 # Keybindings
 bindkey -e
@@ -139,7 +139,7 @@ alias termbin='nc termbin.com 9999'
 [ ! -f ~/.zplug/init.zsh ] && git clone https://github.com/zplug/zplug ~/.zplug
 source ~/.zplug/init.zsh
 
-zplug 'bhilburn/powerlevel9k', use:'powerlevel9k.zsh-theme', if:"[[ $(tput colors) -eq 256 ]]"
+zplug 'bhilburn/powerlevel9k', at:'v0.6.4', use:'powerlevel9k.zsh-theme', if:"[[ $(tput colors) -eq 256 ]]"
 zplug 'junegunn/fzf', use:'shell/*.zsh'
 zplug 'junegunn/fzf-bin', from:gh-r, as:command, rename-to:fzf, use:"*linux*arm8*"
 zplug 'zsh-users/zsh-completions'
@@ -153,7 +153,7 @@ if [ -d $ZPLUG_REPOS/bhilburn/powerlevel9k ]; then
     POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
     POWERLEVEL9K_CONTEXT_TEMPLATE="%B%m%b $(print_icon 'LEFT_SUBSEGMENT_SEPARATOR') %n"
     POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='black'
-    POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='cyan'
+    POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='white'
     POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND='white'
     POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND='red'
     POWERLEVEL9K_SHORTEN_DIR_LENGTH='1'
@@ -176,7 +176,7 @@ if [ -d $ZPLUG_REPOS/bhilburn/powerlevel9k ]; then
     POWERLEVEL9K_CUSTOM_PROMPT_FOREGROUND='white'
     POWERLEVEL9K_CUSTOM_PROMPT_BACKGROUND='008'
     POWERLEVEL9K_STATUS_OK_FOREGROUND='black'
-    POWERLEVEL9K_STATUS_OK_BACKGROUND='cyan'
+    POWERLEVEL9K_STATUS_OK_BACKGROUND='white'
     POWERLEVEL9K_STATUS_ERROR_FOREGROUND='black'
     POWERLEVEL9K_STATUS_ERROR_BACKGROUND='magenta'
 fi
