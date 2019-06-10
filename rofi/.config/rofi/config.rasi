@@ -21,7 +21,7 @@ configuration {
 	drun-icon-theme: "Arc";
 	disable-history: true;
 	sort: true;
-	levenshtein-sort: false;
+/*	levenshtein-sort: false;*/
 /*	case-sensitive: false;*/
 /*	cycle: true;*/
 /*	sidebar-mode: false;*/
@@ -30,7 +30,7 @@ configuration {
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
 /*	combi-modi: "window,run";*/
-	matching: "fuzzy";
+/*	matching: "fuzzy";*/
 /*	tokenize: true;*/
 /*	m: "-5";*/
 /*	line-margin: 2;*/
