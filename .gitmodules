@@ -1,3 +1,6 @@
 [submodule "i3/.config/i3/scripts/i3-persist"]
 	path = i3/.config/i3/scripts/i3-persist
 	url = https://github.com/Igrom/i3-persist.git
+[submodule "i3/.config/i3/scripts/i3-swap"]
+	path = i3/.config/i3/scripts/i3-swap
+	url = https://github.com/saneki/i3-swap

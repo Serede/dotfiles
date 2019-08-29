@@ -162,7 +162,7 @@ bindsym $mod+m exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 bindsym $mod+Tab focus output left
 
 # swap workspaces between monitors
-bindsym $mod+Shift+s exec /home/serede/.config/i3/scripts/swap.py
+bindsym $mod+Shift+s exec /home/serede/.config/i3/scripts/i3-swap/i3-swap
 
 # lock desktop
 bindsym $mod+Shift+colon exec mate-screensaver-command --lock
