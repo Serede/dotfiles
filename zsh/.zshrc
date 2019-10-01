@@ -105,8 +105,14 @@ ttyctl -f
 # Command not found hook
 [ -f /usr/share/doc/pkgfile/command-not-found.zsh ] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
+# Golang paths
+if command -v go &> /dev/null; then
+    export GOPATH="$HOME/.go"
+    PATH="$PATH:$(go env GOPATH)/bin"
+fi
+
 # Ruby paths
-if command -v ruby >/dev/null 2>&1; then
+if command -v ruby &> /dev/null; then
     PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
     export GEM_HOME="$(ruby -e 'print Gem.user_dir')"
 fi
@@ -128,7 +134,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias cupstart='systemctl start org.cups.cupsd.service'
 alias cupstop='systemctl stop org.cups.cupsd.service'
-if command -v nvim >/dev/null 2>&1; then
+if command -v nvim &> /dev/null; then
     alias vim='nvim'
     alias vimdiff='nvim -d'
     alias vi='nvim'
@@ -185,3 +191,4 @@ if [ -d $ZPLUG_REPOS/bhilburn/powerlevel9k ]; then
     POWERLEVEL9K_STATUS_ERROR_FOREGROUND='black'
     POWERLEVEL9K_STATUS_ERROR_BACKGROUND='magenta'
 fi
+
