@@ -1,18 +1,19 @@
 [user]
-	name = Serede Sixty Six
-	email = serede.dev@gmail.com
+    name = Serede Sixty Six
+    email = serede.dev@gmail.com
+    signingkey = EF359244FA7D5492076C705A45B615B33F7C446F
 [core]
-	editor = nvim
-	excludesfile = /home/serede/.gitignore_global
+    editor = nvim
+    excludesfile = /home/serede/.gitignore_global
 [color]
-	ui = true
+    ui = true
 [push]
-	default = simple
+    default = simple
 [diff]
-	tool = meld
+    tool = meld
 [init]
-	templatedir = ~/.git_template
+    templatedir = ~/.git_template
 [alias]
-	ctags = !.git/hooks/ctags
+    ctags = !.git/hooks/ctags
 [difftool]
-	prompt = false
+    prompt = false
