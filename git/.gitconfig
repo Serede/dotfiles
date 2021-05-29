@@ -8,8 +8,6 @@
 	ui = true
 [push]
 	default = simple
-[diff]
-	tool = meld
 [init]
 	templatedir = ~/.git_template
 [alias]
